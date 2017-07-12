@@ -8,3 +8,6 @@ phases:
   post_build:
     commands:
       - echo Build completed on ` date `
+      - echo Deploying content package into the instance
+      - curl -u admin:admin -F file=@"./packages/test-content.zip" -F name="test-content" -F force=true -F install=true http://juanchiserver.com:4503/crx/packmgr/service.jsp
+      - echo Content package deployed on ` date `
